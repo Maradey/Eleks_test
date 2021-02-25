@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+ 
+namespace ConsoleApplication16
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int k1,k2;
+            Console.WriteLine("введіть коефіцієнти k1,k2:");
+            k1 = Convert.ToInt32(Console.ReadLine());
+            k2 = Convert.ToInt32(Console.ReadLine());
+            double tg = (k2 - k1) / (1 + k1 * k2);/*tangent of angle between two lines*/
+double angRad = Math.Atan(tg); //arctan of tg
+double angDeg = angRad * 180.0 / Math.PI; //radians to degrees
+double ang = (int)Math.Floor(angDeg) % 360; //get an angle and clamp him to [0; 360]
+double mins = (angDeg - Math.Floor(angDeg)) * 60.0; //get minutes
+Console.WriteLine("alpha = {0}°{1}'", ang, mins); //write answer
+Console.ReadKey();
+        }
+    }
+}
