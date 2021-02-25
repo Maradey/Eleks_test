@@ -1,0 +1,27 @@
+using System;
+using System.Text;
+class Program
+{
+    static void Main(string[] args)
+    {
+        System.IO.StreamReader f = new System.IO.StreamReader(@"E:\Test.txt", Encoding.GetEncoding("windows-1251"));
+        string s = "", str = "";
+        while ((s = f.ReadLine()) != null)
+        {
+            str += s;
+        }
+        f.Close();
+        string[] split = str.Split('.', '!', '?');
+        for (int i = 0; i < 3; ++i)
+        {
+            Console.Write(i + 1 + ".");
+            string[] split2 = split[i].Split();
+            for (int j = split2.Length - 1; j > 0; --j)
+                Console.Write(split2[j] + " ");
+            Console.WriteLine("\n");
+ 
+        }
+        Console.ReadLine();
+ 
+    }
+}
